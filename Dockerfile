@@ -12,6 +12,7 @@ RUN apk --no-cache add \
       openssh-client \
       bash && \
     pip install --upgrade setuptools && \
+    pip install cryptography && \
     pip install ansible~=$version && \
     apk del \
       build-base \
