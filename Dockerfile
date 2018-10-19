@@ -11,6 +11,8 @@ RUN apk --no-cache add \
       git \
       openssh-client \
       bash && \
+      python3 && \
+      if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/local/bin/python /usr/bin/python; fi && \
     pip install --upgrade setuptools && \
     pip install cryptography && \
     pip install ansible~=$version && \
