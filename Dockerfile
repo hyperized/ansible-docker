@@ -4,7 +4,6 @@ LABEL description="A simple Ansible docker instance"
 ARG version
 RUN apk --no-cache add \
       build-base \
-      build \
       gcc \
       musl-dev \
       python-dev \
