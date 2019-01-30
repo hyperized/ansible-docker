@@ -1,9 +1,17 @@
 #!/bin/bash
 set -ex
 
-for version in 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7; do
+for version in 2.0 2.1.0 2.2 2.3 2.4 2.5 2.6 2.7; do
     docker image build \
-        --build-arg "version=${version}" \
+        --build-arg "version=${version}.0" \
         --tag "$DOCKER_REPO:$version" \
         .
+
+    docker image build \
+        --build-arg "version=${version}.0" \
+        --tag "$DOCKER_REPO:{$version}-bionic" \
+        -f bionic/Dockerfile \
+        .
 done
+
+
