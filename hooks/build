@@ -5,7 +5,6 @@ for version in 2.0 2.1.0 2.2 2.3 2.4 2.5 2.6 2.7; do
     docker image build \
         --build-arg "version=${version}.0" \
         --tag "$DOCKER_REPO:$version" \
-        -f alpine/Dockerfile \
         .
 
     docker image build \
